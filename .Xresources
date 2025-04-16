@@ -1,0 +1,18 @@
+Xft.dpi: 119
+! Enable Xft antialiasing with subpixel rendering
+Xft.antialias:    true
+Xft.rgba:         rgb
+
+! Enable full hinting
+Xft.hinting:      true
+Xft.hintstyle:    hintfull
+
+! Set the default (interface) font to Ubuntu Sans Medium
+Xft.font:         Ubuntu Sans Medium
+
+! (Optional) Set a preferred font for document text.
+! Note: This resource is not standard—many applications have their own configuration.
+Xft.document.font: Sans
+
+! Set the monospace font (for terminals, code, etc.) to Ubuntu Sans Mono
+Xft.monospace:    Ubuntu Sans Mono
