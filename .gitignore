@@ -50,6 +50,7 @@ ubuntu-xdg-terminals.list
 user-dirs.dirs
 user-dirs.locale
 xdg-terminals.list
+.gsd-*
 
 # --- Optional: Generic Ignores (Recommended) ---
 # Ignore common temporary/cache/log files that might appear
