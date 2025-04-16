@@ -1,0 +1,63 @@
+JetBrains/IdeaIC2024.3/settingsSync/
+
+
+# ~/.config/.gitignore
+# Ignore specific directories and files we don't want to track.
+# Anything NOT listed here will be tracked by default.
+
+# --- Directories to Ignore ---
+autostart/
+darktable/
+dconf/
+discord/
+Electron/
+enchant/
+eog/
+evolution/
+geeqie/
+gh/
+GIMP/
+gnome-session/
+goa-1.0/
+google-chrome/
+ibus/
+JetBrains/
+jgit/
+Logseq/
+matplotlib/
+menus/
+miopen/
+nautilus/
+nextjs-nodejs/
+obs-studio/
+OpenRGB/
+pulse/
+systemd/
+tiling-assistant/
+turborepo/
+update-notifier/
+
+# --- Files to Ignore ---
+bluetooth-autoconnect.sh
+gnome-initial-setup-done
+GNOME-xdg-terminals.list
+i3-xdg-terminals.list
+mimeapps.list
+monitors.xml
+monitors.xml~
+pavucontrol.ini
+ubuntu-xdg-terminals.list
+user-dirs.dirs
+user-dirs.locale
+xdg-terminals.list
+
+# --- Optional: Generic Ignores (Recommended) ---
+# Ignore common temporary/cache/log files that might appear
+*.log
+*.bak
+*.swp
+*~
+.cache/
+
+# NOTE: The files/directories you WANT to track are intentionally *NOT* listed above:
+# gtk-2.0/, gtk-3.0/, gtk-4.0/, i3/, nvim/, polybar/, kitty/, Cursor/, picom.conf
