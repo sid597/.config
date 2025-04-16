@@ -49,6 +49,16 @@
 (map "n" "<leader>nn" vim.cmd.Ex)
 (local normal-visual-modes {"n" "v"})
 
+; Window Splitting Keybindings
+(map :n "<leader>v" "<cmd>vsplit<CR>" {:desc "Split window vertically"})
+(map :n "<leader>h" "<cmd>split<CR>" {:desc "Split window horizontally"})
+
+; Window Navigation Keybindings using Colemak keys
+(map "n" "<leader>n" "<C-w>h") ; Leader + n (Colemak left) -> Move window left
+(map "n" "<leader>e" "<C-w>j") ; Leader + e (Colemak down) -> Move window down
+(map "n" "<leader>i" "<C-w>k") ; Leader + i (Colemak up)   -> Move window up
+(map "n" "<leader>o" "<C-w>l") ; Leader + o (Colemak right)-> Move window right
+
 (local key-mappings {
   "n" "h"
   "e" "j"

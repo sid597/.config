@@ -19,6 +19,12 @@ end
 vim.opt.isfname:append("@-@")
 map("n", "<leader>nn", vim.cmd.Ex)
 local normal_visual_modes = {n = "v"}
+map("n", "<leader>v", "<cmd>vsplit<CR>", {desc = "Split window vertically"})
+map("n", "<leader>h", "<cmd>split<CR>", {desc = "Split window horizontally"})
+map("n", "<leader>n", "<C-w>h")
+map("n", "<leader>e", "<C-w>j")
+map("n", "<leader>i", "<C-w>k")
+map("n", "<leader>o", "<C-w>l")
 local key_mappings = {n = "h", e = "j", i = "k", o = "l", ["'"] = "o", k = "n", s = "i", f = "e", S = "I"}
 for lhs, rhs in pairs(key_mappings) do
   map("n", lhs, rhs)

@@ -19,6 +19,6 @@ vim.loader.enable()
 
 -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = " "
 
 require("lazy").setup("plugins")
