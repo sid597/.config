@@ -36,6 +36,7 @@ systemd/
 tiling-assistant/
 turborepo/
 update-notifier/
+Cursor/
 
 # --- Files to Ignore ---
 bluetooth-autoconnect.sh
