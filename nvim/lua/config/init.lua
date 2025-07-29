@@ -17,14 +17,10 @@ do
   end
 end
 vim.opt.isfname:append("@-@")
-map("n", "<leader>nn", vim.cmd.Ex)
+map("n", "<leader>k", vim.cmd.Ex)
 local normal_visual_modes = {n = "v"}
 map("n", "<leader>v", "<cmd>vsplit<CR>", {desc = "Split window vertically"})
 map("n", "<leader>h", "<cmd>split<CR>", {desc = "Split window horizontally"})
-map("n", "<leader>n", "<C-w>h")
-map("n", "<leader>e", "<C-w>j")
-map("n", "<leader>i", "<C-w>k")
-map("n", "<leader>o", "<C-w>l")
 local key_mappings = {n = "h", e = "j", i = "k", o = "l", ["'"] = "o", k = "n", s = "i", f = "e", S = "I"}
 for lhs, rhs in pairs(key_mappings) do
   map("n", lhs, rhs)
@@ -54,4 +50,28 @@ local function _5_()
   return vim.fn.setpos(".", old_pos)
 end
 vim.keymap.set({"n", "v"}, "<leader>yy", _5_, {desc = "Yank entire buffer to system clipboard"})
-return {}
+local navigation_group = vim.api.nvim_create_augroup("FastWindowNavigation", {clear = true})
+local function _6_()
+  local map_buffer
+  local function _7_(key, command, desc)
+    return vim.keymap.set("n", key, command, {noremap = true, silent = true, buffer = true, desc = desc})
+  end
+  map_buffer = _7_
+  local function _8_()
+    return vim.cmd("wincmd h")
+  end
+  map_buffer("<leader>n", _8_, "Window move left")
+  local function _9_()
+    return vim.cmd("wincmd j")
+  end
+  map_buffer("<leader>e", _9_, "Window move down")
+  local function _10_()
+    return vim.cmd("wincmd k")
+  end
+  map_buffer("<leader>i", _10_, "Window move up")
+  local function _11_()
+    return vim.cmd("wincmd l")
+  end
+  return map_buffer("<leader>o", _11_, "Window move right")
+end
+return vim.api.nvim_create_autocmd("BufWinEnter", {group = navigation_group, pattern = "*", callback = _6_})

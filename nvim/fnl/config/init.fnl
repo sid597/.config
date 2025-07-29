@@ -46,18 +46,13 @@
     (core.assoc vim.o option value)))
 (vim.opt.isfname:append "@-@")
 
-(map "n" "<leader>nn" vim.cmd.Ex)
+(map "n" "<leader>k" vim.cmd.Ex)
 (local normal-visual-modes {"n" "v"})
 
 ; Window Splitting Keybindings
 (map :n "<leader>v" "<cmd>vsplit<CR>" {:desc "Split window vertically"})
 (map :n "<leader>h" "<cmd>split<CR>" {:desc "Split window horizontally"})
 
-; Window Navigation Keybindings using Colemak keys
-(map "n" "<leader>n" "<C-w>h") ; Leader + n (Colemak left) -> Move window left
-(map "n" "<leader>e" "<C-w>j") ; Leader + e (Colemak down) -> Move window down
-(map "n" "<leader>i" "<C-w>k") ; Leader + i (Colemak up)   -> Move window up
-(map "n" "<leader>o" "<C-w>l") ; Leader + o (Colemak right)-> Move window right
 
 (local key-mappings {
   "n" "h"
@@ -120,5 +115,16 @@
   {:desc "Yank entire buffer to system clipboard"})
 
 
-{}
+;; Force window navigation keymaps to be active in every window
+(let [navigation_group (vim.api.nvim_create_augroup "FastWindowNavigation" {:clear true})]
+  (vim.api.nvim_create_autocmd "BufWinEnter"
+    {:group navigation_group
+     :pattern "*"
+     :callback (fn []
+                 (local map_buffer (fn [key command desc]
+                   (vim.keymap.set :n key command {:noremap true :silent true :buffer true :desc desc})))
 
+                 (map_buffer "<leader>n" (fn [] (vim.cmd "wincmd h")) "Window move left")
+                 (map_buffer "<leader>e" (fn [] (vim.cmd "wincmd j")) "Window move down")
+                 (map_buffer "<leader>i" (fn [] (vim.cmd "wincmd k")) "Window move up")
+                 (map_buffer "<leader>o" (fn [] (vim.cmd "wincmd l")) "Window move right"))}))

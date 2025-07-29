@@ -1,4 +1,4 @@
-Xft.dpi: 119
+Xft.dpi: 100
 ! Enable Xft antialiasing with subpixel rendering
 Xft.antialias:    true
 Xft.rgba:         rgb
